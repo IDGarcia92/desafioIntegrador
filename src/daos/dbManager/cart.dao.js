@@ -29,4 +29,6 @@ class cartDao {
     }
 }
 
-export default new cartDao;
+const daoCarritos = new cartDao();
+
+export default daoCarritos;
