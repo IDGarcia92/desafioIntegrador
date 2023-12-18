@@ -34,4 +34,34 @@ cartRouter.post("/", async (req, res) => {
     }
 });
 
+//actualiza un carrito existente, tomando su ID como referencia
+cartRouter.put("/:cid", async (req, res) => {
+    try {
+        res.send({
+        status: 200,
+        payload: await daoCarritos.updateCart(req.body)
+    })}
+    catch(err) {
+        res.send({
+            status: 400,
+            payload: err
+        })
+    }
+});
+
+//elimina un carrito por ID
+cartRouter.delete("/:id", async (req, res) => {
+    try {
+        res.send({
+        status: 200,
+        payload: await daoCarritos.deleteCart(req.body)
+    })}
+    catch(err) {
+        res.send({
+            status: 400,
+            payload: err
+        })
+    }
+});
+
 export default cartRouter;
