@@ -35,6 +35,33 @@ productRouter.post("/", async (req, res) => {
 });
 
 //actualiza un producto existente, tomando su ID como referencia
+productRouter.put("/:pid", async (req, res) => {
+    try {
+        res.send({
+        status: 200,
+        payload: await daoProductos.updateProduct(req.body)
+    })}
+    catch(err) {
+        res.send({
+            status: 400,
+            payload: err
+        })
+    }
+});
 
+//elimina un producto por ID
+productRouter.delete("/:id", async (req, res) => {
+    try {
+        res.send({
+        status: 200,
+        payload: await daoProductos.deleteProduct(req.body)
+    })}
+    catch(err) {
+        res.send({
+            status: 400,
+            payload: err
+        })
+    }
+});
 
 export default productRouter;

@@ -1,6 +1,44 @@
+<!--
 <div>
     <h1> Titulo principal: Productos </h1>
 
     <script type="module" src="/src/public/js/main.js"></script>
 </div>
+!-->
+<div id="output">
+    <h1> Tienda de ropa </h1>
+    <div class="card-container">
+        <ul>
+            {{#each products}}
+                <li>
+                    <h3>{{this.title}}</h3>
+                    <p>description: {{this.description}}</p>
+                    <p>code: {{this.code}}</p>
+                    <p>price: ${{this.price}}</p>
+                    <p>stock: ${{this.stock}}</p>
+                    <p>category: {{this.category}}</p>
+                    <p>id: {{this.id}}</p>
+                </li>
+            {{/each}}
+        </ul>
+    </div>
+        <form action="">
+        <input type="text" name="title" id="title" placeholder="product title">
+        <input type="text" name="description" id="description" placeholder="product description">
+        <input type="text" name="code" id="code" placeholder="product code">
+        <input type="number" name="price" id="price" placeholder="product price">
+        <input type="number" name="stock" id="stock" placeholder="product stock">
+        <input type="text" name="category" id="category" placeholder="product category">
+        <input type="text" name="body" id="body" placeholder="product body">
+        <button type="submit"> Send </button>
+    </form>
+    <br>
+    <h2>Form List</h2>
+    <div id="forms"></div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/src/public/js/main.js"></script>
+</div>
 
+<!-- 
+    src="./js/main.js"
+    !-->

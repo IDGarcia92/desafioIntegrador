@@ -6,6 +6,7 @@ import handlebars from "express-handlebars";
 //Routes
 import productRouter from "./routes/product.routes.js";
 import viewsRouter from "./routes/views.router.js";
+import cartRouter from "./routes/cart.router.js";
 
 const port = 5000
 const app = express();
