@@ -35,11 +35,12 @@ cartRouter.post("/", async (req, res) => {
 });
 
 //actualiza un carrito existente, tomando su ID como referencia
-cartRouter.put("/:cid", async (req, res) => {
+cartRouter.put("/api/carts/:cid/product/:pid", async (req, res) => {
+    const {pid, cid} = req.params
     try {
         res.send({
         status: 200,
-        payload: await daoCarritos.updateCart(req.body)
+        payload: await daoCarritos.updateCart(pid, cid, req.body)
     })}
     catch(err) {
         res.send({
@@ -50,11 +51,12 @@ cartRouter.put("/:cid", async (req, res) => {
 });
 
 //elimina un carrito por ID
-cartRouter.delete("/:id", async (req, res) => {
+cartRouter.delete("/:cid", async (req, res) => {
+    const {cid} = req.params
     try {
         res.send({
         status: 200,
-        payload: await daoCarritos.deleteCart(req.body)
+        payload: await daoCarritos.deleteCart(cid, req.body)
     })}
     catch(err) {
         res.send({
