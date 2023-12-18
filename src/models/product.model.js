@@ -9,6 +9,7 @@ const productSchema = new Schema({
     stock: { type: Number, required: true },
 });
 
+//definimos el modelo productModel, con la función model(), le pasamos la coleccion "products", y el modelo de esquema
 const productModel = model("products", productSchema);
 
 export { productModel };

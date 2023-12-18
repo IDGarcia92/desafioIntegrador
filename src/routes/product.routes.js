@@ -5,6 +5,7 @@ const daoProductos = new productDao();
 
 const productRouter = Router();
 
+//obtiene todos los productos
 productRouter.get("/", async (req, res) => {
     try {res.send({
         status: 200,
@@ -18,6 +19,7 @@ productRouter.get("/", async (req, res) => {
     }
 });
 
+//agrega/crea un producto
 productRouter.post("/", async (req, res) => {
     try {
         res.send({
@@ -31,5 +33,8 @@ productRouter.post("/", async (req, res) => {
         })
     }
 });
+
+//actualiza un producto existente, tomando su ID como referencia
+
 
 export default productRouter;

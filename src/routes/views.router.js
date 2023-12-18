@@ -5,6 +5,7 @@ const daoProductos = new productDao();
 
 const viewsRouter = Router();
 
+//muestra todos los productos
 viewsRouter.get("/", async (req, res) => {
     try {
         const productos = await daoProductos.getAllProducts()
