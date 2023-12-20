@@ -40,3 +40,19 @@ socket.on("forms", (data) => {
     })
     
 });
+
+//chat
+function enviarMensaje() {
+    const mensaje = document.getElementById('mensaje').value;
+    const user = 'correoDelUsuario'; //falta implementar
+
+    socket.emit('chat message', { user, message: mensaje });
+    return false;
+}
+
+socket.on('chat message', (data) => {
+    const listaMensajes = document.getElementById('messages');
+    const nuevoElemento = document.createElement('li');
+    nuevoElemento.textContent = `${data.user}: ${data.message}`;
+    listaMensajes.appendChild(nuevoElemento);
+});

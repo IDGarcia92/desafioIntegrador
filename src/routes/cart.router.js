@@ -35,7 +35,7 @@ cartRouter.post("/", async (req, res) => {
 });
 
 //actualiza un carrito existente, tomando su ID como referencia
-cartRouter.put("/api/carts/:cid/product/:pid", async (req, res) => {
+cartRouter.put("/api/carts/:cid/api/products/:pid", async (req, res) => {
     const {pid, cid} = req.params
     try {
         res.send({
