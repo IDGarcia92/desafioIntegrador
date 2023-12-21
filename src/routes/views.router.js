@@ -17,6 +17,7 @@ viewsRouter.get("/", async (req, res) => {
     } catch(err) {console.log(err)}
 });
 
+//muestra todos los productos en tiempo real
 viewsRouter.get("/realTimeProducts", async (req, res) => {
     try {
         const productos = await daoProductos.getAllProducts();
@@ -24,25 +25,4 @@ viewsRouter.get("/realTimeProducts", async (req, res) => {
     } catch(err) {console.log(err)}
 });
 
-/*
-//ruta principal donde mostraremos la lista de productos
-router.get('/', (req, res) => {
-    res.render('home.hbs', {
-        title: "Lista de Productos",
-        fileCss: 'styles.css',
-        products: products
-    });
-});
-
-
-// Ruta para "/realTimeProducts" (productos en tiempo real)
-router.get('/realTimeProducts', (req, res) => {
-    res.render('realTimeProducts.hbs', { 
-        title: "Lista de Productos en tiempo real",
-        fileCss: 'styles.css',
-        products: products 
-    });
-});
-
-*/
 export default viewsRouter
